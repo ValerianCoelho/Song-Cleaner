@@ -8,6 +8,7 @@
         padding: 5px;
         border-radius: 5px;
         outline: none;
+        font-size: small;
     }
     input[type="text"]:focus {
         border: 2px solid #879194;

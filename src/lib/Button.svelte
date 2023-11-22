@@ -15,6 +15,7 @@
         font-weight: 100;
         border-radius: 5px;
         transition: .1s all;
+        font-size: small;
     }
     button:hover {
         background-color: #18466F;
