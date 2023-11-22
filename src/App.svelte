@@ -1,6 +1,7 @@
 <script>
   import Button from './lib/Button.svelte';
   import Entry from './lib/Entry.svelte';
+  import Text from './lib/Text.svelte';
   import Textbox from './lib/Textbox.svelte';
 </script>
 
@@ -8,6 +9,7 @@
   <Button value="Browse"/>
   <Entry/>
   <Textbox/>
+  <Text text="Hello World"/>
 </main>
 
 <style>

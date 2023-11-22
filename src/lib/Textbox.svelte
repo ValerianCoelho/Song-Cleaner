@@ -6,7 +6,7 @@
     .textbox {
         display: inline-block;
         background-color: #35363A;
-        padding: 5px 20px;
+        padding: 5px;
         color: white;
         border: 2px solid #565C5E;
         border-radius: 5px;
