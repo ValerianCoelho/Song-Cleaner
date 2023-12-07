@@ -1,25 +1,39 @@
 <script>
   import { open } from "@tauri-apps/api/dialog";
-  import { readDir, BaseDirectory } from '@tauri-apps/api/fs';
+  import { readDir, BaseDirectory, renameFile } from '@tauri-apps/api/fs';
 
-  function processEntries(entries) {
+  async function processEntries(entries) {
     for (const entry of entries) {
-      console.log(`Entry: ${entry.path}`);
       if (entry.children) {
         processEntries(entry.children)
+      }
+      else {
+        console.log(`Entry: ${entry.path}`);
+        console.log(entry)
+        try {
+          await renameFile(entry.path, entry.path + "Hello")
+        }
+        catch(error) {
+          console.log(error)
+        }
       }
     }
   }
 
   async function DialogOpen() {
     try {
-      const folderLocation = await open({
+      const folderLocations = await open({
+        multiple: false,
         directory: true
       });
-      console.log(folderLocation);
+      // console.log(folderLocations);
+      const folderLocation = Array.isArray(folderLocations) ? folderLocations[0] : folderLocations;
 
-      const entries = await readDir('', { dir: BaseDirectory.Desktop, recursive: true });
-      processEntries(entries);
+      if(folderLocation) {
+        const entries = await readDir(folderLocation, { recursive: true });
+        processEntries(entries);
+      }
+      
     } 
     catch(error) {
       console.log(error);
