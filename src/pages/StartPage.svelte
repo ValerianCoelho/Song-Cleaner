@@ -27,7 +27,7 @@
 <div class="start-page">
   <div class="browse-source">
     <div class="entry">
-      <Entry value={$sourceFolderStore}/>
+      <Entry title={"Source Folder"} value={$sourceFolderStore}/>
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -37,7 +37,7 @@
   </div>
   <div class="browse-destination">
     <div class="entry">
-      <Entry value={$destinationFolderStore}/>
+      <Entry title={"Destination Folder"} value={$destinationFolderStore}/>
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->

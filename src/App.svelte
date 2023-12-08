@@ -25,7 +25,6 @@
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
-    background-color: var(--dark-2);
     overflow: hidden;
   }
   main {
@@ -33,5 +32,6 @@
     display: grid;
     grid-template-columns: 40px auto;
     grid-template-rows: 40px auto;
+    background-color: var(--dark-2);
   }
 </style>
