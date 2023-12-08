@@ -1,5 +1,9 @@
+<script>
+  export let value = "";
+</script>
+
 <div class="entry">
-  <input type="text">
+  <input type="text" value={value}>
   <div class="title">File Name</div>
 </div>
 

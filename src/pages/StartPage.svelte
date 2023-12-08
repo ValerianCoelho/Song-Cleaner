@@ -25,7 +25,7 @@
   <div class="start-page">
       <div class="browse-source">
       <div class="entry">
-        <Entry/>
+        <Entry value={sourceFolder}/>
       </div>
       <div class="button" on:click={getSourceDirectory}>
         <Button value="Browse"/>
@@ -33,7 +33,7 @@
     </div>
       <div class="browse-destination">
       <div class="entry">
-        <Entry/>
+        <Entry value={destinationFolder}/>
       </div>
       <div class="button" on:click={getDestinationDirectory}>
         <Button value="Browse"/>
