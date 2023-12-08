@@ -14,6 +14,7 @@
 
 <style>
   :root {
+    --dark-0: #6c7488;
     --dark-1: #454B56;
     --dark-2: #2A2E36;
     --dark-3: #202228;
@@ -25,6 +26,7 @@
     font-family: sans-serif;
     box-sizing: border-box;
     background-color: var(--dark-2);
+    overflow: hidden;
   }
   main {
     height: 100vh;

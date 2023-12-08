@@ -21,6 +21,7 @@
         border-radius: 5px;
         transition: 0.1s all;
         font-size: small;
+        height: 100%;
     }
     button:hover {
         background-color: var(--btn-bg-hover-color);
