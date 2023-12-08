@@ -3,7 +3,7 @@
     export let variant = "blue";
 </script>
 
-<button 
+<button on:click
     style={`--btn-bg-color: ${variant === 'blue' ? '#1F6AA4' : '#1FA46C'};
             --btn-bg-hover-color: ${variant === 'blue' ? '#185482' : '#198659'};
           `}

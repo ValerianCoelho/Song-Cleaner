@@ -47,8 +47,8 @@
   </div>
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="next-btn" on:click={()=>{startPageStore.set(false)}}>
-    <Button value="Next"/>
+  <div class="next-btn">
+    <Button value="Next" on:click={()=>{startPageStore.set(false)}}/>
   </div>
 </div>
   
