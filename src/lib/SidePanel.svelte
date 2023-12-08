@@ -18,7 +18,10 @@
 <style>
   .side-panel {
     box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.25);
-    width: 40px;
-    height: auto;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 10px;
   }
 </style>

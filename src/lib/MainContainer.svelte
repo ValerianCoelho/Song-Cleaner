@@ -4,6 +4,6 @@
 
 <style>
 	.main-container {
-		background-color: red;
+		background-color: var(--dark-2);
 	}
 </style>

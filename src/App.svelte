@@ -28,5 +28,8 @@
   }
   main {
     height: 100vh;
+    display: grid;
+    grid-template-columns: 40px 250px auto;
+    grid-template-rows: 40px auto;
   }
 </style>
