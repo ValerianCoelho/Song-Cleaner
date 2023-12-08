@@ -36,6 +36,7 @@
     background-color: var(--dark-3);
     color: white;
     border-right: 1px solid var(--dark-1);
+    height: 100%;
   }
   .folder-section {
     display: flex;
@@ -73,6 +74,7 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
+    width: 80%;
   }
   .branch {
     width: 20px;
@@ -83,8 +85,5 @@
     z-index: 4;
     bottom: 18px;
     left: -20px;
-  }
-  .music-note {
-    
   }
 </style>
