@@ -1,10 +1,11 @@
 <script>
+  import SidePanel from "./lib/SidePanel.svelte";
   import SongCleaner from "./pages/SongCleaner.svelte";
-
 </script>
 
 <main class="container">
   <SongCleaner/>
+  <SidePanel/>
 </main>
 
 <style>
@@ -20,5 +21,8 @@
     font-family: sans-serif;
     box-sizing: border-box;
     background-color: var(--dark-2);
+  }
+  main {
+    height: 100vh;
   }
 </style>
