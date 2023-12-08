@@ -1,5 +1,3 @@
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
 <script>
     import Button from "../lib/Button.svelte";
     import Entry from "../lib/Entry.svelte";
@@ -23,28 +21,36 @@
       destinationFolderStore.set(destinationFolder);
     }
   
-  </script>
-  <div class="start-page">
-      <div class="browse-source">
-      <div class="entry">
-        <Entry value={$sourceFolderStore}/>
-      </div>
-      <div class="button" on:click={getSourceDirectory}>
-        <Button value="Browse"/>
-      </div>
+</script>
+
+
+<div class="start-page">
+  <div class="browse-source">
+    <div class="entry">
+      <Entry value={$sourceFolderStore}/>
     </div>
-      <div class="browse-destination">
-      <div class="entry">
-        <Entry value={$destinationFolderStore}/>
-      </div>
-      <div class="button" on:click={getDestinationDirectory}>
-        <Button value="Browse"/>
-      </div>
-    </div>
-    <div class="next-btn" on:click={()=>{startPageStore.set(false)}}>
-      <Button value="Next"/>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="button" on:click={getSourceDirectory}>
+      <Button value="Browse"/>
     </div>
   </div>
+  <div class="browse-destination">
+    <div class="entry">
+      <Entry value={$destinationFolderStore}/>
+    </div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="button" on:click={getDestinationDirectory}>
+      <Button value="Browse"/>
+    </div>
+  </div>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div class="next-btn" on:click={()=>{startPageStore.set(false)}}>
+    <Button value="Next"/>
+  </div>
+</div>
   
   <style>
     .start-page {

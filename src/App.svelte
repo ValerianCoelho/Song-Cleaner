@@ -9,9 +9,6 @@
 <main class="container">
   <Header/>
   <SidePanel/>
-  {#if $startPageStore == false}
-  <FileView/>
-  {/if}
   <MainContainer/>
 </main>
 
@@ -34,7 +31,7 @@
   main {
     height: 100vh;
     display: grid;
-    grid-template-columns: 40px 250px auto;
+    grid-template-columns: 40px auto;
     grid-template-rows: 40px auto;
   }
 </style>

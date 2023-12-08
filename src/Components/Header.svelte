@@ -11,7 +11,7 @@
     align-items: center;
     padding-left: 10px;
     color: white;
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 2;
     z-index: 2;
   }
 </style>

@@ -1,10 +1,11 @@
 <script>
   export let value = "";
+  export let title = "";
 </script>
 
 <div class="entry">
   <input type="text" value={value}>
-  <div class="title">File Name</div>
+  <div class="title">{title}</div>
 </div>
 
 <style>

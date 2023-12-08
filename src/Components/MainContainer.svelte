@@ -1,6 +1,6 @@
 <script>
   import RenamePage from "../pages/RenamePage.svelte";
-import StartPage from "../pages/StartPage.svelte";
+  import StartPage from "../pages/StartPage.svelte";
   import { startPageStore } from "../store/store";
 </script>
 
