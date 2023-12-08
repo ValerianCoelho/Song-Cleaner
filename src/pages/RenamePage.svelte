@@ -2,8 +2,8 @@
   import FileView from "../Components/FileView.svelte";
   import Entry from "../lib/Entry.svelte";
   import { onMount } from "svelte";
-  import { readDir } from "@tauri-apps/api/fs";
-  import { sourceFolderStore } from "../store/store";
+  import { readDir, renameFile } from "@tauri-apps/api/fs";
+  import { sourceFolderStore, destinationFolderStore } from "../store/store";
   import Button from "../lib/Button.svelte";
 
   let index = 0;
@@ -14,13 +14,14 @@
 
   let cleanSongValue = '';
   let cleanArtistValue = '';
-
+  $: cleanFileName = cleanArtistValue + '-' + cleanSongValue + '.mp3';
   let words;
   $: {
     try {
       words = songs[index].name;
       words = words.replace(/[^a-zA-Z0-9]+/g, ' ');
       words = words.split(' ');
+      console.log(words)
       cleanSongValue = '';
       cleanArtistValue = '';
     } catch (error) {
@@ -35,6 +36,15 @@
       songs = await readDir($sourceFolderStore, { recursive: true });
       console.log(songs);
     } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function renameSong() {
+    try {
+      await renameFile(songs[index].path, $destinationFolderStore + '\\' + cleanFileName)
+      index = index + 1;
+    } catch(error) {
       console.log(error);
     }
   }
@@ -58,7 +68,7 @@
         {#if words}
           {#each words as word}
             <div class="button">
-              <Button value={word} on:click={()=>{cleanSongValue += word + ' '}}/>
+              <Button value={word} on:click={()=>{cleanSongValue += ' ' + word}}/>
             </div>
           {/each}
         {/if}
@@ -77,10 +87,10 @@
       </div>
     </div>
     <div class="section">
-      <Entry title="Renamed File" value={cleanArtistValue + ' - ' + cleanSongValue}/>
+      <Entry title="Renamed File" value={cleanFileName}/>
       <div class="button-list">
         <Button value="Skip" on:click={()=>{index = index + 1}}/>
-        <Button value="Rename"/>
+        <Button value="Rename" on:click={renameSong}/>
       </div>
     </div>
   </div>

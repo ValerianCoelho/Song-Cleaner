@@ -2,7 +2,7 @@
     import Button from "../lib/Button.svelte";
     import Entry from "../lib/Entry.svelte";
     import { open } from "@tauri-apps/api/dialog";
-    import { sourceFolderStore, destinationFolderStore, startPageStore } from "../store/store";
+    import { sourceFolderStore, destinationFolderStore, startPageStore } from "../store/store.js"
 
     async function getSourceDirectory() {
       const sourceFolders = await open({
