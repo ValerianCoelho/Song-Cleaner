@@ -16,16 +16,17 @@
   let cleanArtistValue = '';
 
   let words;
-$: {
-  try {
-    words = songs[index].name;
-    words = words.replace(/[^a-zA-Z0-9]+/g, ' ');
-    words = words.split(' ');
-    console.log(words)
-  } catch (error) {
-    console.log(error);
+  $: {
+    try {
+      words = songs[index].name;
+      words = words.replace(/[^a-zA-Z0-9]+/g, ' ');
+      words = words.split(' ');
+      cleanSongValue = '';
+      cleanArtistValue = '';
+    } catch (error) {
+      console.log(error);
+    }
   }
-}
 
 
 
@@ -76,7 +77,7 @@ $: {
       </div>
     </div>
     <div class="section">
-      <Entry title="Renamed File" />
+      <Entry title="Renamed File" value={cleanArtistValue + ' - ' + cleanSongValue}/>
       <div class="button-list">
         <Button value="Skip" on:click={()=>{index = index + 1}}/>
         <Button value="Rename"/>
