@@ -1,6 +1,25 @@
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <script>
     import Button from "../lib/Button.svelte";
     import Entry from "../lib/Entry.svelte";
+    import { open } from "@tauri-apps/api/dialog";
+
+    let destinationFolder;
+    let sourceFolder;
+
+    async function getSourceDirectory() {
+      sourceFolder = await open({
+        multiple: false,
+        directory: true
+      })
+    }
+    async function getDestinationDirectory() {
+      destinationFolder = await open({
+        multiple: false,
+        directory: true
+      })
+    }
   
   </script>
   <div class="start-page">
@@ -8,7 +27,7 @@
       <div class="entry">
         <Entry/>
       </div>
-      <div class="button">
+      <div class="button" on:click={getSourceDirectory}>
         <Button value="Browse"/>
       </div>
     </div>
@@ -16,7 +35,7 @@
       <div class="entry">
         <Entry/>
       </div>
-      <div class="button">
+      <div class="button" on:click={getDestinationDirectory}>
         <Button value="Browse"/>
       </div>
     </div>
