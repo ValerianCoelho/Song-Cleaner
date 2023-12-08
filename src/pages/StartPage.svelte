@@ -4,7 +4,7 @@
     import Button from "../lib/Button.svelte";
     import Entry from "../lib/Entry.svelte";
     import { open } from "@tauri-apps/api/dialog";
-    import { sourceFolderStore, destinationFolderStore } from "../store/store";
+    import { sourceFolderStore, destinationFolderStore, startPageStore } from "../store/store";
 
     async function getSourceDirectory() {
       const sourceFolders = await open({
@@ -41,7 +41,7 @@
         <Button value="Browse"/>
       </div>
     </div>
-    <div class="next-btn">
+    <div class="next-btn" on:click={()=>{startPageStore.set(false)}}>
       <Button value="Next"/>
     </div>
   </div>

@@ -3,12 +3,15 @@
   import Header from "./Components/Header.svelte";
   import MainContainer from "./Components/MainContainer.svelte";
   import SidePanel from "./Components/SidePanel.svelte";
+  import { startPageStore } from "./store/store";
 </script>
 
 <main class="container">
   <Header/>
   <SidePanel/>
+  {#if $startPageStore == false}
   <FileView/>
+  {/if}
   <MainContainer/>
 </main>
 
