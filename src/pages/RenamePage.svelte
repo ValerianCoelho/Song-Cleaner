@@ -55,7 +55,9 @@
 </script>
 
 <div class="rename-page">
-  <FileView title={"Song Names"} songList={$songList}/>
+  <div class="file-view">
+    <FileView title={"Song Names"} songList={$songList}/>
+  </div>
   <div class="edit-section">
     {#if songs.length > 0}
       <div class="section">
@@ -103,7 +105,7 @@
 <style>
   .rename-page {
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 250px auto;
   }
 
   .section {
@@ -114,4 +116,36 @@
     display: inline-block;
     margin-left: 5px;
   }
+  .file-view {
+    overflow: auto;
+  }
+  /* Target WebKit browsers like Chrome and Safari */
+::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--dark-1);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dark-3);
+}
+
+/* Handle when it's dragging */
+::-webkit-scrollbar-thumb:active {
+  background: #555;
+}
+
+/* Track when it's dragging */
+::-webkit-scrollbar-track:active {
+  background: #ccc;
+}
 </style>

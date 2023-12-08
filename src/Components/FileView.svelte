@@ -58,21 +58,21 @@
     margin-left: 40px;
     overflow: visible;
     position: relative;
+    width: 78%; /* Set width to 100% */
   }
   .song-info {
     display: flex;
     background-color: var(--dark-2);
-    padding: 10px;
+    padding: 2px 10px;
     font-size: 12px;
     border-radius: 5px;
-    width: 148px;
     gap: 10px;
+    width: 100%; /* Set width to 100% */
   }
   .song-name {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    width: 90px;
   }
   .branch {
     width: 20px;
