@@ -4,28 +4,30 @@
     import Button from "../lib/Button.svelte";
     import Entry from "../lib/Entry.svelte";
     import { open } from "@tauri-apps/api/dialog";
-
-    let destinationFolder;
-    let sourceFolder;
+    import { sourceFolderStore, destinationFolderStore } from "../store/store";
 
     async function getSourceDirectory() {
-      sourceFolder = await open({
+      const sourceFolders = await open({
         multiple: false,
         directory: true
       })
+      const sourceFolder = Array.isArray(sourceFolders) ? sourceFolders[0] : sourceFolders;
+      sourceFolderStore.set(sourceFolder);;
     }
     async function getDestinationDirectory() {
-      destinationFolder = await open({
+      const destinationFolders = await open({
         multiple: false,
         directory: true
       })
+      const destinationFolder = Array.isArray(destinationFolders) ? destinationFolders[0] : destinationFolders;
+      destinationFolderStore.set(destinationFolder);
     }
   
   </script>
   <div class="start-page">
       <div class="browse-source">
       <div class="entry">
-        <Entry value={sourceFolder}/>
+        <Entry value={$sourceFolderStore}/>
       </div>
       <div class="button" on:click={getSourceDirectory}>
         <Button value="Browse"/>
@@ -33,7 +35,7 @@
     </div>
       <div class="browse-destination">
       <div class="entry">
-        <Entry value={destinationFolder}/>
+        <Entry value={$destinationFolderStore}/>
       </div>
       <div class="button" on:click={getDestinationDirectory}>
         <Button value="Browse"/>
