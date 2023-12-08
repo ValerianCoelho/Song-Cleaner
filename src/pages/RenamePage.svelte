@@ -3,7 +3,7 @@
   import Entry from "../lib/Entry.svelte";
   import { onMount } from "svelte";
   import { readDir, renameFile } from "@tauri-apps/api/fs";
-  import { sourceFolderStore, destinationFolderStore } from "../store/store";
+  import { sourceFolderStore, destinationFolderStore, songList } from "../store/store";
   import Button from "../lib/Button.svelte";
 
   let index = 0;
@@ -21,7 +21,6 @@
       words = songs[index].name;
       words = words.replace(/[^a-zA-Z0-9]+/g, ' ');
       words = words.split(' ');
-      console.log(words)
       cleanSongValue = '';
       cleanArtistValue = '';
     } catch (error) {
@@ -32,13 +31,14 @@
 
 
   async function getSongNames() {
-    try {
-      songs = await readDir($sourceFolderStore, { recursive: true });
-      console.log(songs);
-    } catch (error) {
-      console.log(error);
-    }
+  try {
+    songs = await readDir($sourceFolderStore, { recursive: true });
+    const newSongList = songs.map(song => song.name);
+    songList.set(newSongList);
+  } catch (error) {
+    console.log(error);
   }
+}
 
   async function renameSong() {
     try {
@@ -55,7 +55,7 @@
 </script>
 
 <div class="rename-page">
-  <FileView />
+  <FileView title={"Song Names"} songList={$songList}/>
   <div class="edit-section">
     {#if songs.length > 0}
       <div class="section">

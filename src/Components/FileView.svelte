@@ -1,17 +1,10 @@
 <script>
   import MusicNote from "../lib/MusicNote.svelte"
-  const title="Folder Name"
-  const songList = [
-    'Song Name', 
-    'Song Name', 
-    'Song Name', 
-    'Song Name', 
-    'Song Name', 
-    'Song Name', 
-    'Song Name', 
-    'Song Name', 
-    'Song Name'
-  ]
+  export let title="Folder Name"
+  export let songList = []
+
+  import { onMount } from "svelte";
+
 </script>
 
 <div class="file-view">
@@ -26,7 +19,9 @@
       <div class="song-section">
         <div class="branch"></div>
         <div class="song-info">
-          <MusicNote/>       
+          <div class="music-note">
+            <MusicNote/>
+          </div>
           <div class="song-name">
             {songName}
           </div>
@@ -71,15 +66,25 @@
     font-size: 12px;
     border-radius: 5px;
     width: 148px;
+    gap: 10px;
+  }
+  .song-name {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    width: 90px;
   }
   .branch {
     width: 20px;
-    height: 50px;
+    height: 60px;
     border-left: 1px solid var(--dark-1);
     border-bottom: 1px solid var(--dark-1);
     position: absolute;
     z-index: 4;
     bottom: 18px;
     left: -20px;
+  }
+  .music-note {
+    
   }
 </style>
