@@ -1,4 +1,6 @@
 <script>
+  import FileView from "./lib/FileView.svelte";
+  import MainContainer from "./lib/MainContainer.svelte";
   import SidePanel from "./lib/SidePanel.svelte";
   import SongCleaner from "./pages/SongCleaner.svelte";
 </script>
@@ -6,6 +8,8 @@
 <main class="container">
   <SongCleaner/>
   <SidePanel/>
+  <FileView/>
+  <MainContainer/>
 </main>
 
 <style>
