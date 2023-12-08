@@ -91,6 +91,10 @@
       <div class="button-list">
         <Button value="Skip" on:click={()=>{index = index + 1}}/>
         <Button value="Rename" on:click={renameSong}/>
+        <Button value="Reset" on:click={()=> {
+          cleanSongValue = '';
+          cleanArtistValue = '';
+        }}/>
       </div>
     </div>
   </div>

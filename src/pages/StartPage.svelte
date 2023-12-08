@@ -48,7 +48,12 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="next-btn">
-    <Button value="Next" on:click={()=>{startPageStore.set(false)}}/>
+    <Button value="Next" on:click={()=>{
+      if($sourceFolderStore === '' || $destinationFolderStore === '') {
+        return;
+      }
+      startPageStore.set(false)
+    }}/>
   </div>
 </div>
   
