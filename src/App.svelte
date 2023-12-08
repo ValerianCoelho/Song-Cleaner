@@ -1,12 +1,12 @@
 <script>
-  import FileView from "./lib/FileView.svelte";
-  import MainContainer from "./lib/MainContainer.svelte";
-  import SidePanel from "./lib/SidePanel.svelte";
-  import SongCleaner from "./pages/SongCleaner.svelte";
+  import FileView from "./Components/FileView.svelte";
+  import Header from "./Components/Header.svelte";
+  import MainContainer from "./Components/MainContainer.svelte";
+  import SidePanel from "./Components/SidePanel.svelte";
 </script>
 
 <main class="container">
-  <SongCleaner/>
+  <Header/>
   <SidePanel/>
   <FileView/>
   <MainContainer/>
