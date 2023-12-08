@@ -9,8 +9,7 @@
   let index = 0;
   let songs = [];
 
-  let destructuredSongName = [];
-  let destructuredArtistName = [];
+  const specialChars = [", ", "- ", "(", ")", "[", "]"]
 
   let cleanSongValue = '';
   let cleanArtistValue = '';
@@ -65,6 +64,23 @@
       </div>
     {/if}
     <div class="section">
+      <Entry title="Artist Name" value={cleanArtistValue}/>
+      <div class="button-list">
+        {#if words}
+          {#each words as word}
+            <div class="button">
+              <Button value={word} on:click={()=>{cleanArtistValue += word + ' '}}/>
+            </div>
+          {/each}
+          {#each specialChars as char}
+            <div class="button">
+              <Button variant="green" value={char} on:click={()=>{cleanArtistValue += char}}/>
+            </div>
+          {/each}
+        {/if}
+      </div>
+    </div>
+    <div class="section">
       <Entry title="Song Name" value={cleanSongValue}/>
       <div class="button-list">
         {#if words}
@@ -73,16 +89,9 @@
               <Button value={word} on:click={()=>{cleanSongValue += ' ' + word}}/>
             </div>
           {/each}
-        {/if}
-      </div>
-    </div>
-    <div class="section">
-      <Entry title="Artist Name" value={cleanArtistValue}/>
-      <div class="button-list">
-        {#if words}
-          {#each words as word}
+          {#each specialChars as char}
             <div class="button">
-              <Button value={word} on:click={()=>{cleanArtistValue += word + ' '}}/>
+              <Button variant="green" value={char} on:click={()=>{cleanSongValue += char}}/>
             </div>
           {/each}
         {/if}
