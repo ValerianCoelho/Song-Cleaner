@@ -4,8 +4,8 @@
 </script>
 
 <button on:click
-    style={`--btn-bg-color: ${variant === 'blue' ? '#1F6AA4' : '#1FA46C'};
-            --btn-bg-hover-color: ${variant === 'blue' ? '#185482' : '#198659'};
+    style={`--btn-bg-color: ${variant === 'blue' ? '#1F6AA4' : (variant === 'red' ? '#FF0000' : '#1FA46C')};
+            --btn-bg-hover-color: ${variant === 'blue' ? '#185482' : (variant === 'red' ? '#CC0000' : '#198659')};
           `}
 >
     {value}

@@ -9,11 +9,11 @@
   let index = 0;
   let songs = [];
 
-  const specialChars = [", ", "- ", "(", ")", "[", "]"]
+  const specialChars = ["'", ", ", "- "]
 
   let cleanSongValue = '';
   let cleanArtistValue = '';
-  $: cleanFileName = cleanArtistValue + '-' + cleanSongValue + '.mp3';
+  $: cleanFileName = cleanArtistValue.trim() + ' - ' + cleanSongValue.trim() + '.mp3';
   let words;
   $: {
     try {
@@ -60,16 +60,27 @@
   <div class="edit-section">
     {#if songs.length > 0}
       <div class="section">
-        <Entry title="File Name" value={songs[index].name} />
+        <Entry title="File Name" value={songs[index].name}/>
       </div>
     {/if}
     <div class="section">
-      <Entry title="Artist Name" value={cleanArtistValue}/>
+      <Entry 
+        title="Artist Name" 
+        value={cleanArtistValue} 
+        on:input={(event)=>{
+          cleanArtistValue = event.target.value;
+        }}/>
       <div class="button-list">
         {#if words}
           {#each words as word}
             <div class="button">
-              <Button value={word} on:click={()=>{cleanArtistValue += word + ' '}}/>
+              <Button value={word} on:click={(event)=>{
+                if(event.ctrlKey) {
+                  cleanArtistValue += word + " ";
+                  return;
+                }
+                cleanArtistValue += word;
+              }}/>
             </div>
           {/each}
           {#each specialChars as char}
@@ -81,12 +92,24 @@
       </div>
     </div>
     <div class="section">
-      <Entry title="Song Name" value={cleanSongValue}/>
+      <Entry 
+        title="Song Name" 
+        value={cleanSongValue}
+        on:input={(event)=>{
+          cleanSongValue = event.target.value;
+        }}
+      />
       <div class="button-list">
         {#if words}
           {#each words as word}
             <div class="button">
-              <Button value={word} on:click={()=>{cleanSongValue += ' ' + word}}/>
+              <Button value={word} on:click={(event)=>{
+                if(event.ctrlKey) {
+                  cleanSongValue += word + " ";
+                  return;
+                }
+                cleanSongValue += word;
+              }}/>
             </div>
           {/each}
           {#each specialChars as char}

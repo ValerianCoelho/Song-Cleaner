@@ -4,7 +4,7 @@
 </script>
 
 <div class="entry">
-  <input type="text" value={value}>
+  <input type="text" value={value} on:input>
   <div class="title">{title}</div>
 </div>
 
