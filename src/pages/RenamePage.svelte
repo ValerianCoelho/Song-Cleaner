@@ -27,11 +27,13 @@
     }
   }
 
-
-
   async function getSongNames() {
   try {
     songs = await readDir($sourceFolderStore, { recursive: true });
+    
+    // Filter only .mp3 files
+    songs = songs.filter(song => song.name.endsWith('.mp3'));
+
     const newSongList = songs.map(song => song.name);
     songList.set(newSongList);
   } catch (error) {
